@@ -1,1 +1,4 @@
 Django
+massive
+python-decouple
+pandas
