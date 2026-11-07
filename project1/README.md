@@ -17,6 +17,14 @@ A comprehensive algorithmic trading system built with Django that implements a m
 
 The momentum trading strategy is based on academic research showing that stocks with strong past performance tend to continue outperforming in the near term.
 
+## Screen Captures
+
+<img width="2560" height="1124" alt="Screenshot 2026-11-07 at 19 23 12" src="https://github.com/user-attachments/assets/55023ff6-a30b-41db-be76-b6762cbdc4c5" />
+<img width="2560" height="1195" alt="Screenshot 2026-11-07 at 19 23 28" src="https://github.com/user-attachments/assets/e74022bb-dccb-4c41-8ad8-4b23851edae5" />
+<img width="2546" height="991" alt="Screenshot 2026-11-07 at 13 19 19" src="https://github.com/user-attachments/assets/149ba279-6a5c-49a5-b40a-25ea3bce9e48" />
+<img width="2560" height="1141" alt="Screenshot 2026-11-07 at 19 23 47" src="https://github.com/user-attachments/assets/073cc539-ebae-498f-aafa-50443b5c93e5" />
+<img width="1681" height="978" alt="Screenshot 2026-11-07 at 19 24 03" src="https://github.com/user-attachments/assets/7cc9b640-d0ac-4d80-9a14-30e8fd6e45c6" />
+
 ### Key Components:
 
 1. **Momentum Score Calculation**
@@ -35,7 +43,7 @@ The momentum trading strategy is based on academic research showing that stocks 
    - Regular rebalancing (weekly or monthly)
    - Maintain cash buffer for new opportunities
 
-## 🛠 Installation
+## Installation
 
 ### Prerequisites
 
