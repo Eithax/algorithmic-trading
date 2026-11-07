@@ -166,7 +166,7 @@ class Trade(models.Model):
 
 
 class PerformanceMetrics(models.Model):
-    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name="porformance_metrics")
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, related_name="performance_metrics")
     date = models.DateField()
     total_value = models.DecimalField(max_digits=15, decimal_places=2)
     cash_value = models.DecimalField(max_digits=15, decimal_places=2)
