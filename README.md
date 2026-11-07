@@ -43,7 +43,7 @@ The momentum trading strategy is based on academic research showing that stocks 
    - Regular rebalancing (weekly or monthly)
    - Maintain cash buffer for new opportunities
 
-## 🛠 Installation
+## Installation
 
 ### Prerequisites
 
