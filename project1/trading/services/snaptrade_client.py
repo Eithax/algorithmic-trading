@@ -1,5 +1,5 @@
 from django.conf import settings
-from snaptrade_client import SnapTrade
+from snaptrade_client import SnapTrade, SnapTradeAuth
 from portfolio.models import Portfolio, Position, Trade
 from trading.models import Stock
 from typing import List, Optional
@@ -11,9 +11,11 @@ logger = logging.getLogger(__name__)
 
 class TradingExecutor:
     def __init__(self):
+        auth = SnapTradeAuth.commercial_api_key(
+                client_id=settings.SNAPTRADE_CLIENT_ID,
+                consumer_key=settings.SNAPTRADE_CLIENT_SECRET)
         self.snaptrade = SnapTrade(
-            consumer_key=settings.SNAPTRADE_CLIENT_SECRET,
-            client_id=settings.SNAPTRADE_CLIENT_ID
+            auth=auth
         )
 
     def _get_current_stock_price(self, ticker: str) -> Optional[Decimal]:

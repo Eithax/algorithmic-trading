@@ -8,7 +8,7 @@ import uuid
 import os
 import logging
 from decimal import Decimal
-from snaptrade_client import SnapTrade
+from snaptrade_client import SnapTrade, SnapTradeAuth
 from trading.models import Stock, MomentumScore, TradingSignal, RebalanceEvent
 from trading.services.momentum_calculator import get_momentum_calculator
 from portfolio.models import Portfolio, Position, Trade
@@ -254,9 +254,9 @@ def initiate_snaptrade_auth(request):
         })
     
     # Initialize SnapTrade client
+    auth = SnapTradeAuth.commercial_api_key(client_id=client_id, consumer_key=consumer_key)
     snaptrade = SnapTrade(
-        consumer_key=consumer_key,
-        client_id=client_id,
+        auth=auth
     )
     
     # Generate a unique user ID for SnapTrade
@@ -330,9 +330,11 @@ def snaptrade_callback(request):
         return redirect('trading:create_portfolio')
 
     # Initialize SnapTrade client
-    snaptrade = SnapTrade(
-        consumer_key=settings.SNAPTRADE_CLIENT_SECRET,
+    auth = SnapTradeAuth.commercial_api_key(
         client_id=settings.SNAPTRADE_CLIENT_ID,
+        consumer_key=settings.SNAPTRADE_CLIENT_SECRET)
+    snaptrade = SnapTrade(
+        auth=auth
     )
     
     # Get user accounts using SDK
