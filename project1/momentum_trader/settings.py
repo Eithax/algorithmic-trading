@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_beat',
     'trading',
     'portfolio'
 ]
@@ -120,6 +121,12 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
@@ -130,5 +137,21 @@ MAILERS = {
 }
 
 
-# env file variables
+# env variables - API Keys
 MASSIVE_API_KEY = config("MASSIVE_API_KEY", default="")
+SNAPTRADE_CLIENT_SECRET = config("SNAPTRADE_CLIENT_SECRET", default="")
+SNAPTRADE_CLIENT_ID = config("SNAPTRADE_CLIENT_ID", default="")
+
+# Celery configuration
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+
+# Momentum variables
+MOMENTUM_LOOKBACK_MONTHS = 12
+MOMENTUM_SKIP_MONTHS = 1
+REBALANCE_FREQUENCY = 'weekly'  # Must be 'weekly' or 'monthly'
+TOP_QUINTILE_THRESHOLD = 20     # Top % of stocks
