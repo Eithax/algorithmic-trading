@@ -2,3 +2,8 @@ Django
 massive
 python-decouple
 pandas
+snaptrade-python-sdk
+python-dateutil
+numpy
+celery>=5.3.0
+django-celery-beat>=2.5.0
