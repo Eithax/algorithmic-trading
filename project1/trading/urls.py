@@ -26,6 +26,6 @@ urlpatterns = [
 
     # API endpoints
     path('api/momentum-data/', views.api_momentum_data, name='api_momentum_data'),
-    path('api/portfolio/<int:portoflio_id>/performance/', views.api_portfolio_performance, name='api_portfolio_performance'),
+    path('api/portfolio/<int:portfolio_id>/performance/', views.api_portfolio_performance, name='api_portfolio_performance'),
     path('api/portfolios/', views.api_portfolios, name='api_portfolios'),
 ]
