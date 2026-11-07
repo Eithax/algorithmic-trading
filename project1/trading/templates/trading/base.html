@@ -35,22 +35,25 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-             <nav class="col-md-2 d-md-block sidebar">
+            <nav class="col-md-2 d-md-block sidebar">
                 <div class="sidebar-sticky pt-3">
                     <h5 class="mb-3">Momentum Trader</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" href="{% url 'trading:dashboard' %}">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" 
+                               href="{% url 'trading:dashboard' %}">
                                 <i class="bi bi-speedometer2"></i> Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'momentum_scores' %}active{% endif %}" href="{% url 'trading:momentum_scores' %}">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'momentum_scores' %}active{% endif %}" 
+                               href="{% url 'trading:momentum_scores' %}">
                                 <i class="bi bi-graph-up"></i> Momentum Scores
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'trading_signals' %}active{% endif %}" href="{% url 'trading:trading_signals' %}">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'trading_signals' %}active{% endif %}" 
+                               href="{% url 'trading:trading_signals' %}">
                                 <i class="bi bi-bell"></i> Trading Signals
                             </a>
                         </li>
@@ -58,27 +61,29 @@
                             <hr class="my-3">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'portfolio_list' %}active{% endif %}" href="{% url 'trading:portfolio_list' %}">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'portfolio_list' %}active{% endif %}" 
+                               href="{% url 'trading:portfolio_list' %}">
                                 <i class="bi bi-briefcase"></i> Portfolios
                             </a>
                         </li>
                         {% for portfolio in portfolios %}
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'portfolio_detail' and request.resolver_match.kwargs.portfolio_id == portfolio_id %}active{% endif %}" href="{% url 'trading:portfolio_detail' %}">
+                            <a class="nav-link {% if request.resolver_match.url_name == 'portfolio_detail' and request.resolver_match.kwargs.portfolio_id == portfolio.id %}active{% endif %}" 
+                               href="{% url 'trading:portfolio_detail' portfolio.id %}">
                                 <i class="bi bi-dot"></i> {{ portfolio.name }}
                             </a>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
-             </nav>
+            </nav>
 
-             <!-- Main content -->
-              <main class="col-md-10 ml-sm-auto px-md-4">
+            <!-- Main content -->
+            <main class="col-md-10 ml-sm-auto px-md-4">
                 <div class="pt-3">
                     {% block content %}{% endblock %}
                 </div>
-              </main>
+            </main>
         </div>
     </div>
 
